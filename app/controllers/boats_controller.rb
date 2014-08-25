@@ -1,10 +1,6 @@
 class BoatsController < ApplicationController
   def index
     boats = Boat.all
-    boats.map! do |object|
-      hash = object.attributes.delete_if{|k, v| k == "created_at" || k == "updated_at"}
-      object = hash
-  end
 
     render json: boats, status: 200
   end

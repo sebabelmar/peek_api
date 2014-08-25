@@ -4,7 +4,6 @@ class CreateBoats < ActiveRecord::Migration
       t.string :name
       t.integer :capacity
 
-      t.timestamps
     end
   end
 end

@@ -21,10 +21,8 @@ ActiveRecord::Schema.define(version: 20140825130828) do
   end
 
   create_table "boats", force: true do |t|
-    t.string   "name"
-    t.integer  "capacity"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string  "name"
+    t.integer "capacity"
   end
 
   create_table "bookings", force: true do |t|

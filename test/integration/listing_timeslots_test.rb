@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ListingTimeslotsTest < ActionDispatch::IntegrationTest
 
-  test 'returns list of all zombies' do
+  test 'returns list of all timeslots' do
     get '/api/timeslots'
 
     assert_equal 200, response.status

@@ -1,10 +1,10 @@
   class TimeslotsController < ApplicationController
     def index
-    timeslots = Timeslot.all
-    timeslots.map! do |object|
-      hash = object.attributes.delete_if{|k, v| k == "created_at" || k == "updated_at"}
-      hash["boats"] = object.boats.to_a
-      object = hash
+      timeslots = Timeslot.all
+      timeslots.map! do |object|
+        hash = object.attributes.delete_if{|k, v| k == "created_at" || k == "updated_at"}
+        hash["boats"] = object.boats.to_a
+        object = hash
     end
 
       render json: timeslots, status: 200

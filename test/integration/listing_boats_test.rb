@@ -10,5 +10,5 @@ class ListingTimeslotsTest < ActionDispatch::IntegrationTest
     assert_equal "Array", timeslots.class.to_s
   end
 
-
 end
+

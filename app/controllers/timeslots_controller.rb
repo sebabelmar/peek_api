@@ -5,7 +5,7 @@ class TimeslotsController < ApplicationController
       hash = object.attributes.delete_if{|k, v| k == "created_at" || k == "updated_at"}
       hash["boats"] = object.boats.to_a
       object = hash
-    end
+  end
 
     render json: timeslots, status: 200
   end

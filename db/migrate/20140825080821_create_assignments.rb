@@ -1,6 +1,6 @@
-class CreateAssigments < ActiveRecord::Migration
+class CreateAssignments < ActiveRecord::Migration
   def change
-    create_table :assigments do |t|
+    create_table :assignments do |t|
       t.belongs_to :timeslot
       t.belongs_to :boat
 

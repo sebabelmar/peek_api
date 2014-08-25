@@ -1,4 +1,4 @@
 class Boat < ActiveRecord::Base
-  has_many :assigments
-  has_many :timeslots, through: :assigments
+  has_many :assignments
+  has_many :timeslots, through: :assignments
 end

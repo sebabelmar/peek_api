@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class CreatingBoatsTest < ActionDispatch::IntegrationTest
+
   test 'creates boats' do
     post '/api/boats',
     {boat:
@@ -9,4 +10,5 @@ class CreatingBoatsTest < ActionDispatch::IntegrationTest
 
     assert_equal 201, response.status
   end
+
 end

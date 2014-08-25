@@ -11,4 +11,5 @@ class AssignmentsController < ApplicationController
   def assignment_params
     params.require(:assignment).permit(:timeslot_id, :boat_id)
   end
+
 end

@@ -9,5 +9,4 @@ class CreatingTimeslotsTest < ActionDispatch::IntegrationTest
 
     assert_equal 201, response.status
   end
-
 end

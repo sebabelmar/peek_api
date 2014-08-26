@@ -20,33 +20,17 @@ class BookingsController < ApplicationController
 
     timeslot = Timeslot.find(timeslot_id)
 
-    puts "************"
-    p timeslot.boats
-    puts "************"
-
     timeslot.boats.each do |boat|
       if boat.use == false
         capacity_available[boat.id] = boat.capacity
       end
     end
 
-    puts "************"
-    p capacity_available
-    puts "************"
-
     capacity_available.each do |id, capacity|
-      puts "************"
-      puts id
-      puts capacity
-      puts "************"
      if booking_size <= capacity
        boat_id = id
      end
     end
-
-    puts "************"
-    p boat_id
-    puts "************"
 
     boat = Boat.find(boat_id)
     boat.use = true

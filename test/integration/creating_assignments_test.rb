@@ -3,6 +3,8 @@ require 'test_helper'
 class CreatingAssignmentsTest < ActionDispatch::IntegrationTest
   test 'creates assignments' do
     timeslot = Timeslot.create(id: 1, start_time: 123456, duration: 120)
+    booking = Booking.create(id:1, timeslot_id: 1, size: 4)
+
     post '/api/assignment',
     {assignment:
       {timeslot_id: 1, boat_id: 1}

@@ -4,7 +4,6 @@ class AssignmentsController < ApplicationController
 
     if assignment.save
       update_availability(assignment.timeslot_id)
-
       render json: assignment, status: 201
     end
   end
@@ -16,9 +15,15 @@ class AssignmentsController < ApplicationController
 
   def update_availability(timeslot_id)
     timeslot = Timeslot.find(timeslot_id)
-    boats = timeslot.boats
-    total_availability = boats.map(&:capacity).reduce(:+)
-    timeslot.availability = total_availability
-  end
+    total_availability = timeslot.boats.map(&:capacity).reduce(:+)
 
+    if timeslot.bookings.size > 0
+      seats_in_use = timeslot.bookings.map(&:size).reduce(:+)
+    else
+      seats_in_use = 0
+    end
+
+    timeslot.availability = total_availability - seats_in_use
+    timeslot.save
+  end
 end

@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20140825130828) do
   create_table "boats", force: true do |t|
     t.string  "name"
     t.integer "capacity"
+    t.boolean "use",      default: false
   end
 
   create_table "bookings", force: true do |t|

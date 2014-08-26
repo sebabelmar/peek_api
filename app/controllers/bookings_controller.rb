@@ -3,6 +3,8 @@ class BookingsController < ApplicationController
     booking = Booking.new(booking_params)
 
     if booking.save
+      use_a_boat(booking.size, booking.timeslot_id)
+      update_availability(booking.timeslot_id)
       render json: booking, status: 201
     end
   end
@@ -12,4 +14,57 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:timeslot_id, :size)
   end
 
+  def use_a_boat(booking_size, timeslot_id)
+    capacity_available = {}
+    boat_id = 0
+
+    timeslot = Timeslot.find(timeslot_id)
+
+    puts "************"
+    p timeslot.boats
+    puts "************"
+
+    timeslot.boats.each do |boat|
+      if boat.use == false
+        capacity_available[boat.id] = boat.capacity
+      end
+    end
+
+    puts "************"
+    p capacity_available
+    puts "************"
+
+    capacity_available.each do |id, capacity|
+      puts "************"
+      puts id
+      puts capacity
+      puts "************"
+     if booking_size <= capacity
+       boat_id = id
+     end
+    end
+
+    puts "************"
+    p boat_id
+    puts "************"
+
+    boat = Boat.find(boat_id)
+    boat.use = true
+    boat.save
+  end
+
+  def update_availability(timeslot_id)
+    timeslot = Timeslot.find(timeslot_id)
+    total_availability = 0
+
+    timeslot.boats.each do |boat|
+      total_availability += boat.capacity if boat.use == false
+    end
+
+    seats_in_use = timeslot.bookings.map(&:size).reduce(:+)
+
+    timeslot.availability = total_availability
+    timeslot.customer_count = seats_in_use
+    timeslot.save
+  end
 end

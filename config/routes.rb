@@ -6,7 +6,10 @@ PeekApi::Application.routes.draw do
   get 'api/boats', :to => 'boats#index'
   post 'api/boats', :to => 'boats#create'
 
-  post 'api/assignment', :to => 'assignments#create'
-  post 'api/booking', :to => 'bookings#create'
+  get 'api/assignments', :to => 'assignments#index'
+  post 'api/assignments', :to => 'assignments#create'
+
+  get 'api/bookings', :to => 'bookings#index'
+  post 'api/bookings', :to => 'bookings#create'
 
 end

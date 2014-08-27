@@ -5,6 +5,7 @@ class CreateTimeslots < ActiveRecord::Migration
       t.integer :duration
       t.integer :availability, default: 0
       t.integer :customer_count, default: 0
+      t.integer :overlap, default: 0
 
       t.timestamps
     end

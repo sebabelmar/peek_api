@@ -7,8 +7,8 @@ class BookingsController < ApplicationController
 
     if booking.save
       use_a_boat(booking.size, booking.timeslot_id)
-      update_availability(booking.timeslot_id)
       delete_overlap_assignments(booking.timeslot_id)
+      update_availability(booking.timeslot_id)
 
       render json: booking, status: 201
     end
@@ -21,22 +21,39 @@ class BookingsController < ApplicationController
 
   def use_a_boat(booking_size, timeslot_id)
     capacity_available = {}
-    boat_id = 0
 
     timeslot = Timeslot.find(timeslot_id)
 
+    # refactor this using inject
     timeslot.boats.each do |boat|
-      if boat.use == false
-        capacity_available[boat.id] = boat.capacity
-      end
+      capacity_available[boat.id] = boat.capacity
     end
 
-    capacity_available.each do |id, capacity|
-      if timeslot.boats == 1
-        if booking_size <= capacity && booking_size > (capacity / 2) &&
-          boat = Boat.find(id)
+    puts "**************"
+    p capacity_available
+    puts "**************"
+
+    puts "**************"
+    p timeslot.boats.size
+    puts "**************"
+
+
+    if timeslot.boats.size > 1
+      capacity_available.each do |boat_id, capacity|
+        puts "**************"
+        p boat_id
+        p capacity
+        puts "**************"
+
+        if booking_size <= capacity && booking_size > (capacity / 2)
+
+          boat = Boat.find(boat_id)
           boat.use = true
           boat.save
+
+          puts "**************"
+          p boat.use
+          puts "**************"
         end
       end
     end
@@ -44,21 +61,22 @@ class BookingsController < ApplicationController
 
   def update_availability(timeslot_id)
     timeslot = Timeslot.find(timeslot_id)
-    total_availability = 0
-
-    timeslot.boats.each do |boat|
-      total_availability += boat.capacity if boat.use == false
-    end
 
     if timeslot.bookings.size > 0
       seats_in_use = timeslot.bookings.map(&:size).reduce(:+)
+      timeslot.customer_count = seats_in_use
+      timeslot.save
     else
       seats_in_use = 0
     end
 
-    timeslot.availability = total_availability - seats_in_use
-    timeslot.customer_count = seats_in_use
-    timeslot.save
+    if timeslot.boats.map(&:use).include?(true)
+      timeslot.availability =  timeslot.boats.where(use: false).map(&:capacity).reduce(:+)
+      timeslot.save
+    else
+      timeslot.availability = timeslot.boats.map(&:capacity).reduce(:+) - seats_in_use
+      timeslot.save
+    end
   end
 
   def delete_overlap_assignments(id)

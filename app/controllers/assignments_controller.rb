@@ -26,22 +26,13 @@ class AssignmentsController < ApplicationController
   def update_boat_use(timeslot_id, boat_id)
     timeslot = Timeslot.find(timeslot_id)
 
-    if timeslot.overlap == 0
       boat = Boat.find(boat_id)
       boat.use = false
       boat.save
-    end
-
   end
 
   def update_availability(timeslot_id)
     timeslot = Timeslot.find(timeslot_id)
-
-    total_availability = 0
-
-    timeslot.boats.each do |boat|
-      total_availability += boat.capacity if boat.use == false
-    end
 
     if timeslot.bookings.size > 0
       seats_in_use = timeslot.bookings.map(&:size).reduce(:+)
@@ -49,8 +40,13 @@ class AssignmentsController < ApplicationController
       seats_in_use = 0
     end
 
-    timeslot.availability = total_availability - seats_in_use
-    timeslot.save
+    if timeslot.boats.map(&:use).include?(true)
+      timeslot.availability =  timeslot.boats.where(use: false).map(&:capacity).reduce(:+)
+      timeslot.save
+    else
+      timeslot.availability = timeslot.boats.map(&:capacity).reduce(:+) - seats_in_use
+      timeslot.save
+    end
   end
 
     # For all responses in this controller, return the CORS access control headers.

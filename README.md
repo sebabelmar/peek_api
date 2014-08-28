@@ -13,12 +13,11 @@ Data Base Schema:
 
 ## Test Suite
 
-Partially tested. I decided to use Rspec and Test Unit for the sake of practice.
+Partially tested. 
 
+I decided to use Rspec and Test Unit for the sake of practice.
 Rspec is testing Data Base associations.
-
 Test Unit is testing routes (controllers).
-
 I didn't test more cases but I would love to do so to discuss in a meeting.
 
 

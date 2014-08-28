@@ -5,18 +5,18 @@
 Ruby on Rails API with SQLite database.
 The API was designed and developed to accomplish Peeks.com passport coding challenge.
 
-Data Base Schema
+Data Base Schema.
 ![alt text](http://i.imgur.com/oS45J9b.png)
 
 ## Test Suit
 
-Partially tested
+Partially tested.
 I decided to use Rspec and Test Unit for the sake of practice.
-Rspec is testing Data Base associations
-Test Unit is testing routes (controllers)
+Rspec is testing Data Base associations.
+Test Unit is testing routes (controllers).
 
 
-## Install instructions
+## Install instructions.
 
 Here's how to get it running:
   * `git clone` this repo to your local box
@@ -24,21 +24,21 @@ Here's how to get it running:
   * do `rails s` in the peek_api home directory
   * the API will running in port 3000
 
-## API specification
+## API specification.
 
-All routes plularized to meet scheduling client requirents
+All routes plularized to meet scheduling client requirents..
 
 ####POST /api/timeslots - create a timeslot
-####GET /api/timeslots - list timeslots
+####GET /api/timeslots - list timeslots.
 
 ####POST /api/boats - create a boat
-####GET /api/boats - list boats
+####GET /api/boats - list boats.
 
 ####POST /api/assignments - assign boat to timeslot
-####GET /api/assignments - list assignments
+####GET /api/assignments - list assignments.
 
 ####POST /api/bookings - create a booking
-####GET /api/bookings - list bookings
+####GET /api/bookings - list bookings.
 
 ## Accomplishments
 
@@ -46,10 +46,10 @@ All routes plularized to meet scheduling client requirents
   I think that the capacity at the test stage is 12 and not 8 as sugested.
 
 * CASE 2: Test 4/4
-  All test passing
+  All test passing.
 
 * MANUAL CASE:
-  It is working for other simple booking
+  It is working for other simple booking.
 
 ## Q-A
 What complications can you foresee while doing this exercise?

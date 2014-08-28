@@ -12,7 +12,9 @@ Data Base Schema.
 
 Partially tested.
 I decided to use Rspec and Test Unit for the sake of practice.
+
 Rspec is testing Data Base associations.
+
 Test Unit is testing routes (controllers).
 
 
@@ -29,13 +31,16 @@ Here's how to get it running:
 All routes plularized to meet scheduling client requirents..
 
 ####POST /api/timeslots - create a timeslot
-####GET /api/timeslots - list timeslots.
+####GET /api/timeslots - list timeslots
+
 
 ####POST /api/boats - create a boat
-####GET /api/boats - list boats.
+####GET /api/boats - list boats
+
 
 ####POST /api/assignments - assign boat to timeslot
-####GET /api/assignments - list assignments.
+####GET /api/assignments - list assignments
+
 
 ####POST /api/bookings - create a booking
 ####GET /api/bookings - list bookings.

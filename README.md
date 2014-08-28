@@ -77,9 +77,9 @@ What complications can you foresee while doing this exercise?
 > A different Data Base engine will be needed in order to scale. SQLite was good in order to built this small MVP.
 
 ## What I would add. Dynamic Pricing / Revenue Management
-> * __Booking's frequency metter__. A method that calculates how frequently bookings are happening and compares that with that days availavility, in order to modify the price if there is an evident peak on demand.
-> * __Promotion alert__. If there are 15 minutes before a timeslot begins and the the booking's frequency metter is normal, create a last minute promotion.
-> * __Seasonality__. A method that modifies the price related to season specificatoins.
+> * __Booking's frequency metter__. A method that calculates how frequently bookings are happening and compares that with that days availability, in order to modify the price if there is an evident peak on demand.
+> * __Promotion alert__. If there are 15 minutes before a timeslot begins, and the booking's frequency meter is normal, create a last minute promotion.
+> * __Seasonality__. A method that modifies the price related to season specifications.
 
 ## Comments
 

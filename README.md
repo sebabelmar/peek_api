@@ -69,6 +69,7 @@ What complications can you foresee while doing this exercise?
 > When assigning boats to scpecific slots I added a field to the timeslots table that is filled by an overlap finder method. This method works well when there is only one overlap because its data type is Integer. 
 > I think that converting that field data type into a string and coleccting that information as an array and storing its string representation in the data base can be a way to scale.
 > Adding validations and a more rubust availability controller - Scheduler Class - is necesary in order to prevent booking when there is no more availability. At least this is an easy feature to implement, but there are other cases that are possible to happened that will require adding more complexity to the Scheduler Class.
+> A different Data Base engine will be needed in order to scale. SQLite was good in order to built this small MVP.
 
 ## What I would add. Dynamic Pricing / Revenue Management
 > * __Booking's frequency metter__. A method that calculates how frequently bookings are happening and compares that with that days availavility, in order to modify the price if there is an evident peak on demand.

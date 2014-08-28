@@ -71,7 +71,6 @@ What complications can you foresee while doing this exercise?
 > Adding validations and a more rubust availability controller - Scheduler Class - is necesary in order to prevent booking when there is no more availability. At least this is an easy feature to implement, but there are other cases that are possible to happened that will require adding more complexity to the Scheduler Class.
 
 ## What I would add. Dynamic Pricing / Revenue Management
-> Two thinkgs
 > * __Booking's frequency metter__. A method that calculates how frequently bookings are happening and compares that with that days availavility, in order to modify the price if there is an evident peak on demand.
 > * __Promotion alert__. If there are 15 minutes before a timeslot begins and the the booking's frequency metter is normal, create a last minute promotion.
 > * __Seasonality__. A method that modifies the price related to season specificatoins.

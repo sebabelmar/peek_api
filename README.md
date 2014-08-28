@@ -59,8 +59,8 @@ All routes plularized to meet scheduling client requirents..
 ## Q-A
 What complications can you foresee while doing this exercise?
 
-When assigning boats to scpecific slots I added a filed to the timeslots table that is fill by a overlap finder method. This method works well when there is only one overlap. I think that converting that field data type into a string and coleccting that information as an array and storing it's string representation in the data base can be a way to scale.
-Adding validations and a more rubust availability controller is necesary in order to do not let booking happend when there is not more availability. At least this is a easy feature to implement, but there are other cases that are possible to happened that will require adding more complexity to the Scheduler class.
+> When assigning boats to scpecific slots I added a filed to the timeslots table that is fill by a overlap finder method. This method works well when there is only one overlap. I think that converting that field data type into a string and coleccting that information as an array and storing it's string representation in the data base can be a way to scale.
+> Adding validations and a more rubust availability controller is necesary in order to do not let booking happend when there is not more availability. At least this is a easy feature to implement, but there are other cases that are possible to happened that will require adding more complexity to the Scheduler class.
 
 ## Comments
 

@@ -85,7 +85,7 @@ What complications can you foresee while doing this exercise?
 
 > I thought in developing this API with Sinatra beacuse is simple and fast. But instead I used this  challenge to grasp my Rails skills. In the process I learned a lot. Plus I tried to comply with the MVC design pattern as much as possible.
 
-> I TDD the development the structure of the API - Data Base and routes. After that I used Postman to verify the calls responses.
+> I TDD the development of the structure of the API - Data Base and routes. After that I used Postman to verify the calls responses.
 
 ## What's Next
 

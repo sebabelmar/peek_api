@@ -87,6 +87,8 @@ What complications can you foresee while doing this exercise?
 
 > I TDD the development of the structure of the API - Data Base and routes. After that I used Postman to verify the calls responses.
 
+> I think that the Scheduler Class needs more refactoring in order to make it more efficient and delete some duplication. Plus the gem file needs a double check to delete unnecessary dependencies..
+
 ## What's Next
 
 > Let's talk.

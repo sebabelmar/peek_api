@@ -3,19 +3,23 @@
 ## Stack
 
 Ruby on Rails API with SQLite database.
-The API was designed and developed to accomplish Peeks.com passport coding challenge.
+
+The API was designed and developed to accomplish Peek.com passport coding challenge.
 
 Data Base Schema.
+
+
 ![alt text](http://i.imgur.com/oS45J9b.png)
 
-## Test Suit
+## Test Suite
 
-Partially tested.
-I decided to use Rspec and Test Unit for the sake of practice.
+Partially tested. I decided to use Rspec and Test Unit for the sake of practice.
 
 Rspec is testing Data Base associations.
 
 Test Unit is testing routes (controllers).
+
+I didn't test more cases but I would love to do so to discuss in a meeting.
 
 
 ## Install instructions.
@@ -34,12 +38,15 @@ All routes plularized to meet scheduling client requirents..
 ####GET /api/timeslots - list timeslots
 
 
+
 ####POST /api/boats - create a boat
 ####GET /api/boats - list boats
 
 
+
 ####POST /api/assignments - assign boat to timeslot
 ####GET /api/assignments - list assignments
+
 
 
 ####POST /api/bookings - create a booking
@@ -48,19 +55,26 @@ All routes plularized to meet scheduling client requirents..
 ## Accomplishments
 
 * CASE 1: Test 1/2
-  I think that the capacity at the test stage is 12 and not 8 as sugested.
+  I think that the capacity at the test stage is 12 and not 8 as suggested.
 
 * CASE 2: Test 4/4
-  All test passing.
+  All tests passing.
 
 * MANUAL CASE:
-  It is working for other simple booking.
+  It is working for other simple bookings.
 
 ## Q-A
 What complications can you foresee while doing this exercise?
 
-> When assigning boats to scpecific slots I added a filed to the timeslots table that is fill by a overlap finder method. This method works well when there is only one overlap. I think that converting that field data type into a string and coleccting that information as an array and storing it's string representation in the data base can be a way to scale.
-> Adding validations and a more rubust availability controller is necesary in order to do not let booking happend when there is not more availability. At least this is a easy feature to implement, but there are other cases that are possible to happened that will require adding more complexity to the Scheduler class.
+> When assigning boats to scpecific slots I added a field to the timeslots table that is filled by an overlap finder method. This method works well when there is only one overlap because its data type is Integer. 
+> I think that converting that field data type into a string and coleccting that information as an array and storing its string representation in the data base can be a way to scale.
+> Adding validations and a more rubust availability controller - Scheduler Class - is necesary in order to prevent booking when there is no more availability. At least this is an easy feature to implement, but there are other cases that are possible to happened that will require adding more complexity to the Scheduler Class.
+
+## What I would add. Dynamic Pricing / Revenue Management
+> Two thinkgs
+> * __Booking's frequency metter__. A method that calculates how frequently bookings are happening and compares that with that days availavility, in order to modify the price if there is an evident peak on demand.
+> * __Promotion alert__. If there are 15 minutes before a timeslot begins and the the booking's frequency metter is normal, create a last minute promotion.
+> * __Seasonality__. A method that modifies the price related to season specificatoins.
 
 ## Comments
 
@@ -73,4 +87,4 @@ What complications can you foresee while doing this exercise?
 
 ## What's Next
 
-> Let's talk, I didn't test more cases
+> Let's talk.

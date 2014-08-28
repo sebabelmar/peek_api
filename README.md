@@ -4,7 +4,7 @@
 
 This API was designed and developed to accomplish Peek.com passport coding challenge.
 
-Built using Ruby on Rails-API with SQLite database.
+Built using Ruby on Rails-API with SQLite.
 
 Data Base Schema:
 

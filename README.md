@@ -19,9 +19,9 @@ Test Unit is testing routes (controllers)
 ## Install instructions
 
 Here's how to get it running:
-  * git clone this repo to your local box
-  * do bundle install in the peek_api home directory
-  * do rails s in the peek_api home directory
+  * `git clone` this repo to your local box
+  * do `bundle install` in the peek_api home directory
+  * do `rails s` in the peek_api home directory
   * the API will running in port 3000
 
 ## API specification

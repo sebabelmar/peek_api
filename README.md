@@ -2,11 +2,11 @@
 
 ## Stack
 
-Ruby on Rails API with SQLite database.
+This API was designed and developed to accomplish Peek.com passport coding challenge.
 
-The API was designed and developed to accomplish Peek.com passport coding challenge.
+Built using Ruby on Rails-API with SQLite database.
 
-Data Base Schema.
+Data Base Schema:
 
 
 ![alt text](http://i.imgur.com/oS45J9b.png)
